@@ -21,7 +21,7 @@ simulate_data <- function() {
   plot(xx_weeks_model,model_yy,pch=19,xlim=c(0,30.5),xaxs="i",yaxs="i",col='black',xlab="Weeks",ylab="Cases",ylim=c(0,800),bty="l",lwd=2,type="l")
   lines(xx_weeks_model,model_yy2,col="red",lwd=2)
   
-  dev.copy(pdf,paste("data/figure1.pdf",sep=""),width=10,height=6)
+  dev.copy(pdf,paste("figure1.pdf",sep=""),width=10,height=6)
   dev.off()
   
 }
