@@ -24,6 +24,11 @@ simulate_PDF_data <- function() {
   dev.copy(pdf,paste("figure1.pdf",sep=""),width=10,height=6)
   dev.off()
   
+  # generate guide functions
+  guide_data <- cbind(c(5,10,13,16,2,18),c(5,30,200,800,NA,NA),c("x","x","y","y","data","data")) %>% data.frame()
+  names(guide_data) <- c("point","value","axis")
+  write_csv(guide_data,paste0("figure1.pdf",".guide.csv"))
+  
 }
 
 
