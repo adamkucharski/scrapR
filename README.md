@@ -55,3 +55,5 @@ Then extract the data using the RDS file and guide CSV file:
 ```r
 extract_data(file_name = "figure1.pdf")
 ```
+
+The resulting data for the line(s) will be output as `[FIGURENAME][INDEX].csv`

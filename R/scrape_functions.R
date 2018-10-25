@@ -88,7 +88,7 @@ load_data <- function(file_name = "figure1.pdf") {
 
 extract_data <- function(file_name = "figure1.pdf") {
   
-  figure_guide <- read_csv(paste0("data/",file_name,".guide.csv"))
+  figure_guide <- read_csv(paste0(file_name,".guide.csv"))
   
   # Transform co-ordinate system
   xxbase <- figure_guide[figure_guide$axis=="x",]

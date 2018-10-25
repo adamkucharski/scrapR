@@ -33,5 +33,7 @@ setwd("..")
 # - - - 
 
 # Extract data from file and output results
+setwd("data/")
 extract_data(file_name = "figure1.pdf")
+setwd("..")
 
