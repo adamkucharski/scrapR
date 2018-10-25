@@ -6,6 +6,11 @@
 \usage{
 extract_data(file_name = "figure1.pdf")
 }
+\arguments{
+\item{file_name}{File to load}
+
+\item{integer_values}{TRUE if the points are expected to be integer values}
+}
 \description{
 This function simulates data
 }

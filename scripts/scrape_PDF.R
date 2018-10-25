@@ -13,7 +13,7 @@ source("R/scrape_functions.R")
 
 # - - - 
 # Simulate some cartoon data
-simulate_data()
+simulate_PDF_data()
 
 # - - - 
 # STEP 1:
@@ -23,7 +23,7 @@ simulate_data()
 
 # Load PDF data from file and plot to align
 setwd("data/")
-load_data(file_name="figure1.pdf")
+scrapR::load_PDF_data(file_name="figure1.pdf")
 setwd("..")
 
 
@@ -34,6 +34,6 @@ setwd("..")
 
 # Extract data from file and output results
 setwd("data/")
-extract_data(file_name = "figure1.pdf")
+scrapR::extract_PDF_data(file_name = "figure1.pdf")
 setwd("..")
 

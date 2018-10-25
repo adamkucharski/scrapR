@@ -4,7 +4,10 @@
 \alias{load_data}
 \title{Load PDF data from figure}
 \usage{
-load_data(file_name = "figure1.pdf")
+load_data(file_name = "figure1.pdf", integer_values = F)
+}
+\arguments{
+\item{file_name}{File to load}
 }
 \description{
 This function simulates data

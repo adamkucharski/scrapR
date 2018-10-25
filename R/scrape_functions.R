@@ -9,7 +9,7 @@
 # - - - 
 # Simulate some cartoon data
 
-simulate_data <- function() {
+simulate_PDF_data <- function() {
   
   set.seed(1)
   xx_weeks_model = seq(1,30,1)
@@ -32,10 +32,11 @@ simulate_data <- function() {
 #'
 #' This function simulates data
 #' @export
+#' @param file_name File to load
 #' @examples
 #' load_data()
 
-load_data <- function( file_name = "figure1.pdf" ) {
+load_PDF_data <- function( file_name = "figure1.pdf",integer_values=F ) {
   
   PostScriptTrace(file_name)
   figure_data <- readPicture(paste0(file_name,".xml"))
@@ -81,11 +82,13 @@ load_data <- function( file_name = "figure1.pdf" ) {
 #' Extract data from PDF
 #'
 #' This function simulates data
+#' @param file_name File to load
+#' @param integer_values TRUE if the points are expected to be integer values
 #' @export
 #' @examples
 #' extract_data()
 
-extract_data <- function(file_name = "figure1.pdf") {
+extract_PDF_data <- function(file_name = "figure1.pdf") {
   
   figure_guide <- read_csv(paste0(file_name,".guide.csv"))
   

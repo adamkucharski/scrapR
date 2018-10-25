@@ -24,7 +24,7 @@ library(grImport)
 
 First you need a figure to extract data from. If you want a simple test figure, you can run:
 ```r
-simulate_data()
+scrapR::simulate_PDF_data()
 ```
 to generate a simulated set of lines and output as `figure1.pdf`.
 
@@ -33,7 +33,7 @@ to generate a simulated set of lines and output as `figure1.pdf`.
 Next, navigate to the directory containing your PDF figure and import the data:
 
 ```r
-load_data(file_name="figure1.pdf")
+scrapR::load_PDF_data(file_name="figure1.pdf")
 ```
 
 This will output a raw RDS file and a figure (`[FIGURENAME].guide.pdf`) with the different components labelled with letters. 
@@ -56,7 +56,7 @@ point   | value | axis
 Then extract the data using the RDS file and guide CSV file:
 
 ```r
-extract_data(file_name = "figure1.pdf")
+scrapR::extract_PDF_data(file_name = "figure1.pdf")
 ```
 
 The resulting data for the line(s) will be output as `[FIGURENAME][INDEX].csv`
