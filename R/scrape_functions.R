@@ -41,7 +41,7 @@ simulate_PDF_data <- function() {
 #' @examples
 #' load_PDF_data()
 
-load_PDF_data <- function( file_name = "figure1.pdf",integer_values=F ) {
+load_PDF_data <- function( file_name = "figure1.pdf" ) {
   
   PostScriptTrace(file_name)
   figure_data <- readPicture(paste0(file_name,".xml"))
@@ -93,7 +93,7 @@ load_PDF_data <- function( file_name = "figure1.pdf",integer_values=F ) {
 #' @examples
 #' extract_PDF_data()
 
-extract_PDF_data <- function(file_name = "figure1.pdf") {
+extract_PDF_data <- function(file_name = "figure1.pdf",integer_values=F) {
   
   figure_guide <- read_csv(paste0(file_name,".guide.csv"))
   
