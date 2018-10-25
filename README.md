@@ -26,6 +26,10 @@ First we need a figure to extract data from. You can use `simulate_data()` to ge
 
 ![Screenshot](data/figure0.pdf)
 
+<div align="center">
+    <img src="data/figure0.pdf" width="400px"></img> 
+</div>
+
 Before extracting data, it's worth removing unnecessary parts of the vector graphic. Create a copy of your plot in Affinity/Illustrator and delete everything except the lines with data you want and four tick marks (2 on x-axis, 2 on y-axis) that will be used to calibrate the scale.
 
 ![Screenshot](data/figure1.pdf)
