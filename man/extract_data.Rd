@@ -12,4 +12,3 @@ This function simulates data
 \examples{
 extract_data()
 }
-\keyword{simulation}

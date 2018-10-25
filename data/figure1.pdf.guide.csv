@@ -1,5 +1,7 @@
 point,value,axis
-B,5,x
-C,30,x
-D,0,y
-E,800,y
+5,5,x
+9,30,x
+13,200,y
+16,800,y
+2,NA,data
+18,NA,data

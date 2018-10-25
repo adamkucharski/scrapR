@@ -22,11 +22,7 @@ library(grImport)
 
 ## Example
 
-First we need a figure to extract data from. You can use `simulate_data()` to generate a simulated figure if needed.
-
-![Screenshot](data/figure0.pdf)
-
-Before extracting data, it's worth removing unnecessary parts of the vector graphic. Create a copy of your plot in Affinity/Illustrator and delete everything except the lines with data you want and four tick marks (2 on x-axis, 2 on y-axis) that will be used to calibrate the scale.
+First you need a figure to extract data from. The package uses `simulate_data()` to generate a simulated set of lines.
 
 ![Screenshot](data/figure1.pdf)
 
@@ -40,15 +36,18 @@ This will output a raw RDS file and a figure (`[FIGURENAME].guide.pdf`) with the
 
 ![Screenshot](data/figure1.pdfguide.pdf)
 
+If the data fails to import, it's probably because the vector graphic has too many surrounding features. In this case, use an editor like Affinity/Illustrator etc. to delete unnecessary surrounding content, making sure to leave the lines with data you want and at least four tick marks (2 on x-axis, 2 on y-axis), which will be used to calibrate the scale.
 
-If the tick marks are not labelled as "A,B,C,D" in some order, edit `[FIGURE NAME].guide.csv` so the letters match up with your orignal four tick marks.
+Once the file loads, edit `[FIGURE NAME].guide.csv` so the numbers match up with two x-axis tick marks and two y-axis tick marks, and specify which lines you want to extract.
 
 point   | value | axis
 ------------- | -------------  | -------------  
-B | 5 | x
-C | 30 | x
-D | 0 | y
-E | 800 | y
+5 | 5 | x
+9 | 30 | x
+13 | 200 | y
+16 | 800 | y
+2 | NA | data
+18 | NA | data
 
 Then extract the data using the RDS file and guide CSV file:
 

@@ -21,7 +21,7 @@ simulate_data <- function() {
   plot(xx_weeks_model,model_yy,pch=19,xlim=c(0,30.5),xaxs="i",yaxs="i",col='black',xlab="Weeks",ylab="Cases",ylim=c(0,800),bty="l",lwd=2,type="l")
   lines(xx_weeks_model,model_yy2,col="red",lwd=2)
   
-  dev.copy(pdf,paste("data/figure0.pdf",sep=""),width=10,height=6)
+  dev.copy(pdf,paste("data/figure1.pdf",sep=""),width=10,height=6)
   dev.off()
   
 }
@@ -31,12 +31,11 @@ simulate_data <- function() {
 #' Load PDF data from figure
 #'
 #' This function simulates data
-#' @keywords simulation
 #' @export
 #' @examples
-#' simulate_data()
+#' load_data()
 
-load_data <- function(file_name = "figure1.pdf") {
+load_data <- function( file_name = "figure1.pdf" ) {
   
   PostScriptTrace(file_name)
   figure_data <- readPicture(paste0(file_name,".xml"))
@@ -59,14 +58,15 @@ load_data <- function(file_name = "figure1.pdf") {
   xxlim <- (figure_data@summary@xscale %>% as.numeric())
   yylim <- (figure_data@summary@yscale %>% as.numeric())
   
-  plot(0,xlim=xxlim,ylim=yylim)
+  par(mar=c(0,0,0,0))
+  plot(0,xlim=xxlim,ylim=yylim,bty="l",col="white",xaxt="n",yaxt="n",ylab="",xlab="")
   
   for(ii in 1:npaths){
     
     plotval <- round(length(store_data[[ii]]$x)/2)
     
     lines(store_data[[ii]]$x,store_data[[ii]]$y )
-    text(LETTERS[ii],x=store_data[[ii]]$x[plotval],y=store_data[[ii]]$y[plotval],col="red")
+    text(ii,x=store_data[[ii]]$x[plotval],y=store_data[[ii]]$y[plotval],col="red")
     
   }
   
@@ -81,7 +81,6 @@ load_data <- function(file_name = "figure1.pdf") {
 #' Extract data from PDF
 #'
 #' This function simulates data
-#' @keywords simulation
 #' @export
 #' @examples
 #' extract_data()
@@ -100,12 +99,12 @@ extract_data <- function(file_name = "figure1.pdf") {
   ntotal <- length(store_data0)
   
   # Match up and extract
-  x_labels <- match(xxbase$point,LETTERS[1:ntotal]); 
+  x_labels <- match(xxbase$point, c(1:ntotal) ); 
   x_locations <- sapply(x_labels,function(i){store_data0[[i]]$x[1]}) # Extract tick locations
   x_locations <- x_locations[order(xxbase$value)] # Put in ascending order based on extracted values
   x_actual <- sort(xxbase$value)
   
-  y_labels <- match(yybase$point,LETTERS[1:ntotal]); 
+  y_labels <- match(yybase$point, c(1:ntotal) ); 
   y_locations <- sapply(y_labels,function(i){store_data0[[i]]$y[1]})
   y_locations <- y_locations[order(yybase$value)] # Put in ascending order based on extracted values
   y_actual <- sort(yybase$value)
@@ -113,28 +112,31 @@ extract_data <- function(file_name = "figure1.pdf") {
   # - - - 
   # Plot and output data
   
-  entries_data <- (1:ntotal)[-match(figure_guide$point,LETTERS[1:ntotal])] # Non-guide entries
+  entries_data <- figure_guide[figure_guide$axis=="data",]$point # Non-guide entries
 
   
-  for(ii in entries_data){
+  for(jj in 1:length(entries_data)){
+    
+    ii <- entries_data[jj] # index
     
     xx <- x_actual[1]+(x_actual[2]-x_actual[1])*(store_data0[[ii]]$x - x_locations[1])/(x_locations[2]-x_locations[1])
     yy <- y_actual[1]+(y_actual[2]-y_actual[1])*(store_data0[[ii]]$y - y_locations[1])/(y_locations[2]-y_locations[1])
     
-    if(ii==entries_data[1]){
-      plot(xx,yy,type="l")
-    }else{
-      lines(xx,yy)
-    }
+    # if(jj==1){
+    #   par(mar=c(3,3,1,1))
+    #   plot(xx,yy,type="l")
+    # }else{
+    #   lines(xx,yy)
+    # }
     
     lines_store <- cbind(xx,yy) %>% data.frame()
     names(lines_store) <- c("x","y")
     
-    write_csv(lines_store,paste0(file_name,ii,".csv"))
+    write_csv(lines_store,paste0(file_name,jj,".csv"))
   }
   
-  dev.copy(pdf,paste0(file_name,"estimates.pdf",sep=""),width=10,height=6)
-  dev.off()
+  # dev.copy(pdf,paste0(file_name,"estimates.pdf",sep=""),width=10,height=6)
+  # dev.off()
   
   
 }

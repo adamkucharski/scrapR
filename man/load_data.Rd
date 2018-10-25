@@ -4,12 +4,11 @@
 \alias{load_data}
 \title{Load PDF data from figure}
 \usage{
-load_data(file_name = "figure1.pdf", file_path = "data/figure1.pdf")
+load_data(file_name = "figure1.pdf")
 }
 \description{
 This function simulates data
 }
 \examples{
-simulate_data()
+load_data()
 }
-\keyword{simulation}
