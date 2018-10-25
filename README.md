@@ -26,14 +26,14 @@ First you need a figure to extract data from. If you want a simple test figure, 
 ```r
 simulate_data()
 ```
-to generate a simulated set of lines.
+to generate a simulated set of lines and output as `figure1.pdf`.
 
 ![Screenshot](data/figure1.pdf)
 
 Next, navigate to the directory containing your PDF figure and import the data
 
 ```r
-load_data(file_name="[FIGURENAME].pdf")
+load_data(file_name="figure1.pdf")
 ```
 
 This will output a raw RDS file and a figure (`[FIGURENAME].guide.pdf`) with the different components labelled with letters. 
