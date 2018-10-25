@@ -4,7 +4,7 @@
 #' @keywords simulation
 #' @export
 #' @examples
-#' simulate_data()
+#' simulate_PDF_data()
 
 # - - - 
 # Simulate some cartoon data
@@ -34,7 +34,7 @@ simulate_PDF_data <- function() {
 #' @export
 #' @param file_name File to load
 #' @examples
-#' load_data()
+#' load_PDF_data()
 
 load_PDF_data <- function( file_name = "figure1.pdf",integer_values=F ) {
   
@@ -86,7 +86,7 @@ load_PDF_data <- function( file_name = "figure1.pdf",integer_values=F ) {
 #' @param integer_values TRUE if the points are expected to be integer values
 #' @export
 #' @examples
-#' extract_data()
+#' extract_PDF_data()
 
 extract_PDF_data <- function(file_name = "figure1.pdf") {
   
