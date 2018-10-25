@@ -22,11 +22,15 @@ library(grImport)
 
 ## Example
 
-First you need a figure to extract data from. The package uses `simulate_data()` to generate a simulated set of lines.
+First you need a figure to extract data from. If you want a simple test figure, you can run
+```r
+simulate_data()
+```
+to generate a simulated set of lines.
 
 ![Screenshot](data/figure1.pdf)
 
-Navigate to the directory containing the simplified figure and import the data
+Next, navigate to the directory containing your PDF figure and import the data
 
 ```r
 load_data(file_name="[FIGURENAME].pdf")
