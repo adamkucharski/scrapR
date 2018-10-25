@@ -1,12 +1,10 @@
-#' Extract PDF data
+#' Simulate data
 #'
-#' This function extracts PDF data
-#' @keywords extra
+#' This function simulates data
+#' @keywords simulation
 #' @export
 #' @examples
-#' function_1()
-
-
+#' simulate_data()
 
 # - - - 
 # Simulate some cartoon data
@@ -30,16 +28,18 @@ simulate_data <- function() {
 
 
 
-# - - - 
-# Load PDF data from figure
+#' Load PDF data from figure
+#'
+#' This function simulates data
+#' @keywords simulation
+#' @export
+#' @examples
+#' simulate_data()
 
 load_data <- function(file_name = "figure1.pdf", file_path='data/figure1.pdf') {
   
-
-  setwd("data/")
-  PostScriptTrace(file_name)
+  PostScriptTrace(file_path)
   figure_data <- readPicture(paste0(file_name,".xml"))
-  setwd("..")
   
   # Extract and store co-ordinates
   npaths <- length(figure_data@paths)
@@ -63,8 +63,10 @@ load_data <- function(file_name = "figure1.pdf", file_path='data/figure1.pdf') {
   
   for(ii in 1:npaths){
     
+    plotval <- round(length(store_data[[ii]]$x)/2)
+    
     lines(store_data[[ii]]$x,store_data[[ii]]$y )
-    text(LETTERS[ii],x=min(store_data[[ii]]$x),y=min(store_data[[ii]]$y),col="red")
+    text(LETTERS[ii],x=store_data[[ii]]$x[plotval],y=store_data[[ii]]$y[plotval],col="red")
     
   }
   
@@ -75,8 +77,14 @@ load_data <- function(file_name = "figure1.pdf", file_path='data/figure1.pdf') {
   
 }
 
-# - - - - 
-# Extract data from PDF
+
+#' Extract data from PDF
+#'
+#' This function simulates data
+#' @keywords simulation
+#' @export
+#' @examples
+#' extract_data()
 
 extract_data <- function(file_name = "figure1.pdf") {
   
@@ -110,8 +118,8 @@ extract_data <- function(file_name = "figure1.pdf") {
   
   for(ii in entries_data){
     
-    xx = x_actual[1]+(x_actual[2]-x_actual[1])*(store_data0[[ii]]$x - x_locations[1])/(x_locations[2]-x_locations[1])
-    yy = y_actual[1]+(y_actual[2]-y_actual[1])*(store_data0[[ii]]$y - y_locations[1])/(y_locations[2]-y_locations[1])
+    xx <- x_actual[1]+(x_actual[2]-x_actual[1])*(store_data0[[ii]]$x - x_locations[1])/(x_locations[2]-x_locations[1])
+    yy <- y_actual[1]+(y_actual[2]-y_actual[1])*(store_data0[[ii]]$y - y_locations[1])/(y_locations[2]-y_locations[1])
     
     if(ii==entries_data[1]){
       plot(xx,yy,type="l")

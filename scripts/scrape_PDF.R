@@ -13,7 +13,6 @@ source("R/scrape_functions.R")
 
 # - - - 
 # Simulate some cartoon data
-
 simulate_data()
 
 # - - - 
