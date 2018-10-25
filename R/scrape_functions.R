@@ -36,9 +36,9 @@ simulate_data <- function() {
 #' @examples
 #' simulate_data()
 
-load_data <- function(file_name = "figure1.pdf", file_path='data/figure1.pdf') {
+load_data <- function(file_name = "figure1.pdf") {
   
-  PostScriptTrace(file_path)
+  PostScriptTrace(file_name)
   figure_data <- readPicture(paste0(file_name,".xml"))
   
   # Extract and store co-ordinates
@@ -70,10 +70,10 @@ load_data <- function(file_name = "figure1.pdf", file_path='data/figure1.pdf') {
     
   }
   
-  dev.copy(pdf,paste0("outputs/",file_name,"guide.pdf",sep=""),width=10,height=6)
+  dev.copy(pdf,paste0(file_name,"guide.pdf",sep=""),width=10,height=6)
   dev.off()
   
-  write_rds(store_data,paste0("outputs/",file_name,".RDS"))
+  write_rds(store_data,paste0(file_name,".RDS"))
   
 }
 
@@ -95,7 +95,7 @@ extract_data <- function(file_name = "figure1.pdf") {
   yybase <- figure_guide[figure_guide$axis=="y",]
   
   # Load PDF data
-  store_data0 <- read_rds(paste0("outputs/",file_name,".RDS"))
+  store_data0 <- read_rds(paste0(file_name,".RDS"))
   
   ntotal <- length(store_data0)
   
@@ -130,10 +130,10 @@ extract_data <- function(file_name = "figure1.pdf") {
     lines_store <- cbind(xx,yy) %>% data.frame()
     names(lines_store) <- c("x","y")
     
-    write_csv(lines_store,paste0("outputs/",file_name,ii,".csv"))
+    write_csv(lines_store,paste0(file_name,ii,".csv"))
   }
   
-  dev.copy(pdf,paste0("outputs/",file_name,"estimates.pdf",sep=""),width=10,height=6)
+  dev.copy(pdf,paste0(file_name,"estimates.pdf",sep=""),width=10,height=6)
   dev.off()
   
   

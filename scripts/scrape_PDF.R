@@ -22,7 +22,9 @@ simulate_data()
 # - - - 
 
 # Load PDF data from file and plot to align
-load_data(file_name="figure1.pdf",file_path='data/figure1.pdf')
+setwd("data/")
+load_data(file_name="figure1.pdf")
+setwd("..")
 
 
 # - - - 
