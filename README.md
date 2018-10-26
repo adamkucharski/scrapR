@@ -24,21 +24,21 @@ library(grImport)
 
 First you need a figure to extract data from. If you want a simple test figure, you can run:
 ```r
-scrapR::simulate_PDF_data()
+simulate_PDF_data()
 ```
 to generate a simulated set of lines and output as `figure1.pdf`.
 
-![Screenshot](data/figure1.pdf)
+![](data/figure1.pdf)
 
 Next, navigate to the directory containing your PDF figure and import the data:
 
 ```r
-scrapR::load_PDF_data(file_name="figure1.pdf")
+load_PDF_data(file_name="figure1.pdf")
 ```
 
 This will output a raw RDS file and a figure (`[FIGURENAME].guide.pdf`) with the different components labelled with numbers. 
 
-![Screenshot](data/figure1.pdfguide.pdf)
+![](data/figure1.pdfguide.pdf)
 
 If the data fails to import, it's probably because the vector graphic has too many surrounding features. In this case, use an editor like Affinity/Illustrator etc. to delete unnecessary surrounding content, making sure to leave the lines with data you want and at least four tick marks (2 on x-axis, 2 on y-axis), which will be used to calibrate the scale.
 
@@ -56,7 +56,7 @@ point   | value | axis
 Then extract the data using the RDS file and guide CSV file:
 
 ```r
-scrapR::extract_PDF_data(file_name = "figure1.pdf")
+extract_PDF_data(file_name = "figure1.pdf")
 ```
 
 The resulting data for the line(s) will be output as `[FIGURENAME][INDEX].csv`
