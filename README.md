@@ -47,7 +47,7 @@ Once you've run `load_PDF_data()`, edit/create `[FIGURE NAME].guide.csv` so numb
 point   | value | axis
 ------------- | -------------  | -------------  
 5 | 5 | x
-9 | 30 | x
+10 | 30 | x
 13 | 200 | y
 16 | 800 | y
 2 | NA | data
