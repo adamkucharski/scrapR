@@ -28,7 +28,7 @@ simulate_PDF_data()
 ```
 to generate a simulated set of lines and output as `figure1.pdf`.
 
-![Figure1](https://user-images.githubusercontent.com/8329046/47551859-3016ed80-d8fb-11e8-82f4-52cfdfd1a5f0.png "Figure1" =300x)
+<img src="https://user-images.githubusercontent.com/8329046/47551859-3016ed80-d8fb-11e8-82f4-52cfdfd1a5f0.png" width="600px" />
 
 Next, navigate to the directory containing your PDF figure and import the data:
 
@@ -38,7 +38,7 @@ load_PDF_data(file_name="figure1.pdf")
 
 This will output a raw RDS file and a figure (`[FIGURENAME].guide.pdf`) with the different components labelled with numbers. 
 
-![Figure2](https://user-images.githubusercontent.com/8329046/47551865-34430b00-d8fb-11e8-916b-62884f3ff37e.png "Figure2" =300x)
+<img src="https://user-images.githubusercontent.com/8329046/47551865-34430b00-d8fb-11e8-916b-62884f3ff37e.png" width="600px" />
 
 If the data fails to import, it's probably because the vector graphic has too many surrounding features. In this case, use an editor like Affinity/Illustrator etc. to delete unnecessary surrounding content, making sure to leave the lines with data you want and at least four tick marks (2 on x-axis, 2 on y-axis), which will be used to calibrate the scale.
 
