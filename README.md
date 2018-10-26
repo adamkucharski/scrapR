@@ -28,7 +28,7 @@ simulate_PDF_data()
 ```
 to generate a simulated set of lines and output as `figure1.pdf`.
 
-![Figure1](data/figure1.pdf "Figure1")
+![Figure1](https://github.com/adamkucharski/scrapR/raw/master/data/figure1.pdf "Figure1")
 
 Next, navigate to the directory containing your PDF figure and import the data:
 
