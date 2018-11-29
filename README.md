@@ -15,6 +15,7 @@ library(scrapR)
 # load dependencies
 # install.packages("tidyverse")
 # install.packages("grImport")
+# install.packages("magrittr")
 library(tidyverse)
 library(grImport)
 library(magrittr)
