@@ -17,6 +17,7 @@ library(scrapR)
 # install.packages("grImport")
 library(tidyverse)
 library(grImport)
+library(magrittr)
 
 ```
 
