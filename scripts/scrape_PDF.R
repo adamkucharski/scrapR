@@ -23,10 +23,7 @@ simulate_PDF_data()
 # - - - 
 
 # Load PDF data from file and plot to align
-setwd("data/")
 scrapR::load_PDF_data(file_name="figure1.pdf")
-setwd("..")
-
 
 # - - - 
 # STEP 2:
@@ -34,7 +31,5 @@ setwd("..")
 # - - - 
 
 # Extract data from file and output results
-setwd("data/")
 scrapR::extract_PDF_data(file_name = "figure1.pdf")
-setwd("..")
 

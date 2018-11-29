@@ -4,12 +4,17 @@
 \alias{extract_PDF_data}
 \title{Extract data from PDF}
 \usage{
-extract_PDF_data(file_name = "figure1.pdf")
+extract_PDF_data(file_name = "figure1.pdf", integer_values = F,
+  x_log_scale = F, y_log_scale = F)
 }
 \arguments{
 \item{file_name}{File to load}
 
 \item{integer_values}{TRUE if the points are expected to be integer values}
+
+\item{x_log_scale}{TRUE if x axis is on a log scale}
+
+\item{y_log_scale}{TRUE if y axis is on a log scale}
 }
 \description{
 This function simulates data

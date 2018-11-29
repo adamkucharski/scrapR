@@ -12,9 +12,9 @@
 simulate_PDF_data <- function() {
   
   set.seed(1)
-  xx_weeks_model = seq(1,30,1)
-  model_yy = round((1+0.5*runif(length(xx_weeks_model)))*5000*dnorm(xx_weeks_model,mean=10,sd=5))
-  model_yy2 = round((1+0.9*runif(length(xx_weeks_model)))*5000*dnorm(xx_weeks_model,mean=15,sd=5))
+  xx_weeks_model <- seq(1,30,1)
+  model_yy <- round((1+0.5*runif(length(xx_weeks_model)))*5000*dnorm(xx_weeks_model,mean=10,sd=5))
+  model_yy2 <- round((1+0.9*runif(length(xx_weeks_model)))*5000*dnorm(xx_weeks_model,mean=15,sd=5))
   
   # Plot simulations
   par(mar=c(4,5,1,1),las=1)
@@ -89,11 +89,13 @@ load_PDF_data <- function( file_name = "figure1.pdf" ) {
 #' This function simulates data
 #' @param file_name File to load
 #' @param integer_values TRUE if the points are expected to be integer values
+#' @param x_log_scale TRUE if x axis is on a log scale
+#' @param y_log_scale TRUE if y axis is on a log scale
 #' @export
 #' @examples
 #' extract_PDF_data()
 
-extract_PDF_data <- function(file_name = "figure1.pdf",integer_values=F) {
+extract_PDF_data <- function(file_name = "figure1.pdf",integer_values=F,x_log_scale=F,y_log_scale=F) {
   
   figure_guide <- read_csv(paste0(file_name,".guide.csv"))
   
@@ -127,16 +129,25 @@ extract_PDF_data <- function(file_name = "figure1.pdf",integer_values=F) {
     
     ii <- entries_data[jj] # index
     
-    xx <- x_actual[1]+(x_actual[2]-x_actual[1])*(store_data0[[ii]]$x - x_locations[1])/(x_locations[2]-x_locations[1])
-    yy <- y_actual[1]+(y_actual[2]-y_actual[1])*(store_data0[[ii]]$y - y_locations[1])/(y_locations[2]-y_locations[1])
+    # Scale axes
+    if(x_log_scale==F){
+      xx <- x_actual[1]+(x_actual[2]-x_actual[1])*(store_data0[[ii]]$x - x_locations[1])/(x_locations[2]-x_locations[1])
+    }
+    if(y_log_scale==F){
+      yy <- y_actual[1]+(y_actual[2]-y_actual[1])*(store_data0[[ii]]$y - y_locations[1])/(y_locations[2]-y_locations[1])
+    }
     
-    # if(jj==1){
-    #   par(mar=c(3,3,1,1))
-    #   plot(xx,yy,type="l")
-    # }else{
-    #   lines(xx,yy)
-    # }
-    
+    if(x_log_scale==T){
+      x_actual_log = log(x_actual,10)
+      xx <- x_actual_log[1]+(x_actual_log[2]-x_actual_log[1])*(store_data0[[ii]]$x - x_locations[1])/(x_locations[2]-x_locations[1])
+      xx <- 10^xx
+    }
+    if(y_log_scale==T){
+      y_actual_log = log(y_actual,10)
+      yy <- y_actual_log[1]+(y_actual_log[2]-y_actual_log[1])*(store_data0[[ii]]$y - y_locations[1])/(y_locations[2]-y_locations[1])
+      yy <- 10^yy
+    }
+
     lines_store <- cbind(xx,yy) %>% data.frame()
     names(lines_store) <- c("x","y")
     
