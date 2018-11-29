@@ -35,7 +35,7 @@ simulate_PDF_data <- function() {
 
 #' Load PDF data from figure
 #'
-#' This function simulates data
+#' This function extracts PDF data and creates a guide figure to align extraction
 #' @export
 #' @param file_name File to load
 #' @examples
@@ -86,7 +86,7 @@ load_PDF_data <- function( file_name = "figure1.pdf" ) {
 
 #' Extract data from PDF
 #'
-#' This function simulates data
+#' This function uses the alignment tools to extract the raw data
 #' @param file_name File to load
 #' @param integer_values TRUE if the points are expected to be integer values
 #' @param x_log_scale TRUE if x axis is on a log scale

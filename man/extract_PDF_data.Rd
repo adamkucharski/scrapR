@@ -17,7 +17,7 @@ extract_PDF_data(file_name = "figure1.pdf", integer_values = F,
 \item{y_log_scale}{TRUE if y axis is on a log scale}
 }
 \description{
-This function simulates data
+This function uses the alignment tools to extract the raw data
 }
 \examples{
 extract_PDF_data()

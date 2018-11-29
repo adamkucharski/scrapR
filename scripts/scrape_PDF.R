@@ -23,7 +23,7 @@ simulate_PDF_data()
 # - - - 
 
 # Load PDF data from file and plot to align
-load_PDF_data(file_name="figure1.pdf")
+load_PDF_data(file_name="02_cascade.pdf")
 
 # - - - 
 # STEP 2:
@@ -31,5 +31,5 @@ load_PDF_data(file_name="figure1.pdf")
 # - - - 
 
 # Extract data from file and output results
-extract_PDF_data(file_name = "figure1.pdf")
+extract_PDF_data(file_name = "02_cascade.pdf",x_log_scale = T,y_log_scale = T)
 

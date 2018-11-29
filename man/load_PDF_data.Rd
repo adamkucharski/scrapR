@@ -10,7 +10,7 @@ load_PDF_data(file_name = "figure1.pdf")
 \item{file_name}{File to load}
 }
 \description{
-This function simulates data
+This function extracts PDF data and creates a guide figure to align extraction
 }
 \examples{
 load_PDF_data()
