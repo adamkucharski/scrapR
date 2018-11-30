@@ -151,7 +151,7 @@ extract_PDF_data <- function(file_name = "figure1.pdf",integer_values=F,x_log_sc
     lines_store <- cbind(xx,yy) %>% data.frame()
     names(lines_store) <- c("x","y")
     
-    write_csv(lines_store,paste0(file_name,jj,".csv"))
+    write_csv(lines_store,paste0(file_name,ii,".csv"))
   }
   
   # dev.copy(pdf,paste0(file_name,"estimates.pdf",sep=""),width=10,height=6)

@@ -55,10 +55,10 @@ point   | value | axis
 2 | NA | data
 18 | NA | data
 
-Then extract the data using the RDS file and guide CSV file:
+Then extract the data using the RDS file and guide CSV file.
 
 ```r
 extract_PDF_data(file_name = "figure1.pdf")
 ```
 
-The resulting data for the line(s) will be output as `[FIGURENAME][INDEX].csv`
+The resulting data for the line(s) will be output as `[FIGURENAME][INDEX].csv`. The above function also has an option to adjust for axes on logarithmic scale.
