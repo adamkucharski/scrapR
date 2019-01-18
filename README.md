@@ -38,7 +38,7 @@ Next, navigate to the directory containing your PDF figure and import the data:
 load_PDF_data(file_name="figure1.pdf")
 ```
 
-This will output a raw RDS file and a figure (`[FIGURENAME].guide.pdf`) with the different components labelled with numbers. 
+This will output a raw RDS file and a figure (`[FIGURENAME].guide.pdf`) with the different vector components labelled with numbers. 
 
 <img src="https://user-images.githubusercontent.com/8329046/47551865-34430b00-d8fb-11e8-916b-62884f3ff37e.png" width="600px" />
 
