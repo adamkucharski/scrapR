@@ -4,8 +4,12 @@
 \alias{extract_PDF_data}
 \title{Extract data from PDF}
 \usage{
-extract_PDF_data(file_name = "figure1.pdf", integer_values = F,
-  x_log_scale = F, y_log_scale = F)
+extract_PDF_data(
+  file_name = "figure1.pdf",
+  integer_values = F,
+  x_log_scale = F,
+  y_log_scale = F
+)
 }
 \arguments{
 \item{file_name}{File to load}

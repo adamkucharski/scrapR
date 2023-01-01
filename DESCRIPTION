@@ -5,6 +5,10 @@ Authors@R: person("Adam", "Kucharski", email = "adam.kucharski@lshtm.ac.uk", rol
 Description: Extract data from PDF figures and convert into machine readable files.
 Depends: R (>= 3.4.3)
 License: GPL-3.0
+Imports:
+    grImport,
+    readr,
+    magrittr
 Encoding: UTF-8
 LazyData: true
-RoxygenNote: 6.1.1
+RoxygenNote: 7.2.3
