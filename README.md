@@ -11,6 +11,14 @@ The easiest way to install the development version of `scrapR` is to use the `de
 library(devtools)
 install_github("adamkucharski/scrapR")
 library(scrapR)
+
+# load dependencies
+# install.packages("readr")
+# install.packages("grImport")
+# install.packages("magrittr")
+library(tidyverse)
+library(grImport)
+library(magrittr)
 ```
 
 ## Example
