@@ -8,8 +8,10 @@
 
 load_PDF_data <- function( file_name = "figure1.pdf" ) {
   
-  PostScriptTrace(file_name)
-  figure_data <- readPicture(paste0(file_name,".xml"))
+  # Generate vector data
+  PostScriptTrace(file_name) # Trace vector and store as xml
+  figure_data <- readPicture(paste0(file_name,".xml")) # Import xml
+  unlink(paste0(file_name,".xml")) # Remove xml file
   
   # Extract and store co-ordinates
   npaths <- length(figure_data@paths)
@@ -24,10 +26,15 @@ load_PDF_data <- function( file_name = "figure1.pdf" ) {
     
   }
   
-  # Build calibration plot
+  # Define plot range
   
   xxlim <- (figure_data@summary@xscale %>% as.numeric())
   yylim <- (figure_data@summary@yscale %>% as.numeric())
+  
+  # XX Extract plot elements here? XX
+  
+  
+  # Build calibration plot
   
   par(mar=c(0,0,0,0))
   plot(0,xlim=xxlim,ylim=yylim,bty="l",col="white",xaxt="n",yaxt="n",ylab="",xlab="")

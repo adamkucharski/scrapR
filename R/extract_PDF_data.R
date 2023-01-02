@@ -11,6 +11,7 @@
 
 extract_PDF_data <- function(file_name = "figure1.pdf",integer_values=F,x_log_scale=F,y_log_scale=F) {
   
+  # Load gudie to co-ordinates
   figure_guide <- read_csv(paste0(file_name,".guide.csv"))
   
   # Transform co-ordinate system
@@ -67,6 +68,9 @@ extract_PDF_data <- function(file_name = "figure1.pdf",integer_values=F,x_log_sc
     
     write_csv(lines_store,paste0(file_name,ii,".csv"))
   }
+  
+  # Remove temporary RDS file
+  unlink(paste0(file_name,".RDS"))
   
   # dev.copy(pdf,paste0(file_name,"estimates.pdf",sep=""),width=10,height=6)
   # dev.off()
