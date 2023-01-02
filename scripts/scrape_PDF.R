@@ -3,6 +3,8 @@
 library(grImport)
 library(tidyverse)
 library(devtools)
+#install_github("adamkucharski/scrapR")
+library(scrapR)
 
 rm(list=ls())
 

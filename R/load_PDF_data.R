@@ -9,7 +9,7 @@
 load_PDF_data <- function( file_name = "figure1.pdf" ) {
   
   # Generate vector data
-  PostScriptTrace(file_name) # Trace vector and store as xml
+  grImport::PostScriptTrace(file_name) # Trace vector and store as xml
   figure_data <- readPicture(paste0(file_name,".xml")) # Import xml
   unlink(paste0(file_name,".xml")) # Remove xml file
   

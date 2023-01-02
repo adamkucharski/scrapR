@@ -14,7 +14,7 @@ extract_PDF_data <- function(file_name = "figure1.pdf",
                              x_log_scale=F,
                              y_log_scale=F) {
   
-  # Load gudie to co-ordinates
+  # Load guide to co-ordinates
   figure_guide <- read_csv(paste0(file_name,".guide.csv"))
   
   # Transform co-ordinate system

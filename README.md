@@ -21,6 +21,8 @@ library(grImport)
 library(magrittr)
 ```
 
+Note that the dependency `grImport` requires the [ghostscript](https://www.ghostscript.com/) PDF interpreter to be installed. You can check which version you have installed (if any) by running `$ gs -v` on the command line. If required, installation can be done via [homebrew](https://formulae.brew.sh/formula/ghostscript) with `$ brew install ghostscript`.
+
 ## Example
 
 First you need a figure to extract data from. If you want a simple test figure, you can run:
