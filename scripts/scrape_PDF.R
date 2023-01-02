@@ -8,10 +8,6 @@ rm(list=ls())
 
 setwd("~/Documents/GitHub/scrapR/")
 
-
-# Load functions
-source("R/scrape_functions.R")
-
 # - - - 
 # Simulate some cartoon data
 scrapR::simulate_PDF_data()

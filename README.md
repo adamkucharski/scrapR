@@ -60,4 +60,4 @@ Then extract the data using the RDS file and guide CSV file.
 extract_PDF_data(file_name = "figure1.pdf")
 ```
 
-The resulting data for the line(s) will be output as `[FIGURENAME][INDEX].csv`. The above function also has an option to adjust for axes on logarithmic scale.
+The resulting data for the line(s) will be output as `[FIGURENAME].csv`, with each line grouped by `index`. The above function also has an option to adjust for x and/or y axes on logarithmic scale.

@@ -9,7 +9,10 @@
 #' @examples
 #' extract_PDF_data()
 
-extract_PDF_data <- function(file_name = "figure1.pdf",integer_values=F,x_log_scale=F,y_log_scale=F) {
+extract_PDF_data <- function(file_name = "figure1.pdf",
+                             integer_values=F,
+                             x_log_scale=F,
+                             y_log_scale=F) {
   
   # Load gudie to co-ordinates
   figure_guide <- read_csv(paste0(file_name,".guide.csv"))
@@ -39,6 +42,7 @@ extract_PDF_data <- function(file_name = "figure1.pdf",integer_values=F,x_log_sc
   
   entries_data <- figure_guide[figure_guide$axis=="data",]$point # Non-guide entries
 
+  store_output <- data.frame(index=NULL,x=NULL,y=NULL)
   
   for(jj in 1:length(entries_data)){
     
@@ -63,11 +67,13 @@ extract_PDF_data <- function(file_name = "figure1.pdf",integer_values=F,x_log_sc
       yy <- 10^yy
     }
 
-    lines_store <- cbind(xx,yy) %>% data.frame()
-    names(lines_store) <- c("x","y")
+    store_output <- rbind(store_output,cbind(ii,xx,yy))
     
-    write_csv(lines_store,paste0(file_name,ii,".csv"))
   }
+  
+  # Output estimates
+  names(store_output) <- c("index","x","y")
+  write_csv(store_output,paste0(file_name,".csv"))
   
   # Remove temporary RDS file
   unlink(paste0(file_name,".RDS"))
