@@ -44,7 +44,7 @@ load_PDF_data <- function( file_name = "figure1.pdf" ) {
     plotval <- round(length(store_data[[ii]]$x)/2)
     
     lines(store_data[[ii]]$x,store_data[[ii]]$y )
-    text(ii,x=store_data[[ii]]$x[plotval],y=store_data[[ii]]$y[plotval],col="red")
+    text(ii,x=store_data[[ii]]$x[plotval],y=store_data[[ii]]$y[plotval],col="red",cex=1.2)
     
   }
   
