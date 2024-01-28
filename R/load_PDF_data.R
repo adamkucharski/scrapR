@@ -33,6 +33,39 @@ load_PDF_data <- function( file_name = "figure1.pdf" ) {
   
   # XX Extract plot elements here? XX
   
+  store_string <- NULL
+  
+  for(ii in 1:npaths){
+    store_string <- paste0(store_string,
+                      paste0("id:", ii,
+                             "; x:",paste(figure_data@paths[ii]$path@x,collapse=" "),
+                             "; x:",paste(figure_data@paths[ii]$path@y,collapse=" "),
+                             "; col:",figure_data@paths[ii]$path@rgb,
+                             "\n")
+    )
+  }
+  
+  system_prompt <- "You are an expert at interpreting vector graphic data in R"
+  user_prompt <- "The following string gives the x and y locations of multiple points in a vector graphic.
+                Identify the contents of the plot (i.e. the vectors that are not axes or tick marks),
+                and return their x and y co-ordinates in a clearly labelled csv format. 
+                Only return the csv format, so it can be input directly into write_csv in R"
+  
+  llm_completion <- create_chat_completion(
+    model = "gpt-3.5-turbo", 
+    messages = list(list("role"="system","content" = system_prompt),
+                    list("role"="user","content" = paste0(user_prompt,"\n",store_string))
+    ),
+    temperature = 0.2, # level of randomness in response
+    openai_api_key = openai_api_key,
+    max_tokens = 2000 # number of tokens (and hence $) used
+  )
+  
+  llm_completion_content <- llm_completion$choices$message.content
+  
+  string_to_csv <- read_csv(llm_completion_content)
+  write_csv(string_to_csv,"test.csv")
+  
   # store_string <- data.frame(id=rep(NA,npaths),
   #                            x=rep(NA,npaths),
   #                            y=rep(NA,npaths),
