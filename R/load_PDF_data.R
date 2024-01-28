@@ -33,18 +33,16 @@ load_PDF_data <- function( file_name = "figure1.pdf" ) {
   
   # XX Extract plot elements here? XX
   
-  store_string <- data.frame(id=rep(NA,npaths),
-                             rule=rep(NA,npaths),
-                             x=rep(NA,npaths),
-                             y=rep(NA,npaths),
-                             rgb=rep(NA,npaths))
-  for(ii in 1:npaths){
-    store_string[ii,"id"] <- ii
-    store_string[ii,"id"] <- ii
-    figure_data@paths[ii]$path@rule
-    
-    store_string <- paste(store_string,unclass_s4,sep="\n")
-  }
+  # store_string <- data.frame(id=rep(NA,npaths),
+  #                            x=rep(NA,npaths),
+  #                            y=rep(NA,npaths),
+  #                            rgb=rep(NA,npaths))
+  # for(ii in 1:npaths){
+  #   store_string[ii,"id"] <- ii
+  #   store_string[ii,"x"] <- paste(figure_data@paths[ii]$path@x,collapse=" ")
+  #   store_string[ii,"y"] <- paste(figure_data@paths[ii]$path@y,collapse=" ")
+  #   store_string[ii,"rgb"] <- figure_data@paths[ii]$path@rgb
+  # }
   
   # Build calibration plot
   
