@@ -2,6 +2,10 @@
 
 `R` package to extract data from PDF figures
 
+## Updated version
+
+This repository has now been deprecated and instead functionality is available via the [pdf2plot web app](https://adamkucharski.github.io/pdf2plot/).
+
 ## Installation
 
 The easiest way to install the development version of `scrapR` is to use the `devtools` package:
