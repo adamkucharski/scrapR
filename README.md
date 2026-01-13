@@ -20,7 +20,10 @@ library(grImport)
 library(readr)
 ```
 
-Note that the dependency `grImport` requires the [ghostscript](https://www.ghostscript.com/) PDF interpreter to be installed. You can check which version you have installed (if any) by running `$ gs -v` on the command line. If required, installation can be done via [homebrew](https://formulae.brew.sh/formula/ghostscript) with `$ brew install ghostscript`.
+Note that the dependency `grImport` requires the [ghostscript](https://www.ghostscript.com/) PDF interpreter to be installed. This is now incompatible with some newer versions of R and Mac OS.
+
+
+You can check which version you have installed (if any) by running `$ gs -v` on the command line. If required, installation can be done via [homebrew](https://formulae.brew.sh/formula/ghostscript) with `$ brew install ghostscript`.
 
 ## Example
 
